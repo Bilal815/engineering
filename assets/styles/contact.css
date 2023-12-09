@@ -111,3 +111,23 @@ header h2 {
 .contact-form button:hover {
   background-color: #494848;
 }
+
+/* Responsive footer */
+footer {
+  background-color: #333;
+  color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-info {
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  margin-bottom: 5px;
+}
+
+.social-media a {
+  margin-right: 10px;
+}
