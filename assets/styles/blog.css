@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif; /* Added fallback font */
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+}
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Responsive navigation bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 20px; /* Increased padding */
+}
+
+.active {
+    background-color: #494848;
+}
+
+
+.logo img {
+    max-height: 60px; /* Adjusted logo size */
+}
+
+nav a {
+    color: #ffffff; /* Improved contrast */
+    text-decoration: none;
+    padding: 15px;
+    font-size: 16px;
+}
+
+
+nav a:hover {
+    background-color: #494848;
+    color: #1f1616;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444; /* Darkened background color */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.social-buttons {
+    display: flex;
+}
+
+.social-buttons a {
+    margin-left: 10px;
+}
+
+/* Responsive header */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f2f2f2;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.125em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #555;
+}
+
+
+main {
+    padding: 2em;
+}
+
+.blog-post {
+    margin-bottom: 2em;
+}
+
+.blog-thumbnail {
+    width: 200px; /* Adjust the width as needed */
+    float: left; /* Float the thumbnail to the left of the content */
+    margin-right: 20px; /* Add some spacing between the thumbnail and content */
+}
+
+.blog-thumbnail img {
+    max-width: 100%;
+    height: auto;
+}

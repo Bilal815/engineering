@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+/* Responsive navigation bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+}
+
+.active {
+  background-color: #494848;
+}
+
+.logo img {
+  max-height: 40px;
+}
+
+nav a {
+  color: #f2f2f2  ;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 16px;
+}
+
+nav a:hover {
+  background-color: #494848;
+  color: #333;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.social-buttons {
+  display: flex;
+}
+
+.social-buttons a {
+  margin-left: 10px;
+}
+
+/* Responsive header */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f2f2f2;
+  }
+  
+header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+  
+header h2 {
+  font-size: 18px;
+  font-weight: normal;
+}
+  
+/* Responsive sections */
+section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.profile {
+    margin-bottom: 20px;
+}
