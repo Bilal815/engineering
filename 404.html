@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Not Found</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
     <style>
-        body {
+        h1, p {
             text-align: center;
-            padding: 50px;
+            padding-right: 20px;
+            padding-left: 20px;
         }
 
         h1 {
+            padding: 50px;
             font-size: 2em;
         }
 
@@ -21,6 +24,33 @@
     </style>
 </head>
 <body>
+    <!-- Navigation bar -->
+    <nav>
+        <div class="logo">
+            <img src="company_logo.png" alt="F&D Engineering Services Logo">
+        </div>
+
+        <a href="index.html">Home</a>
+        <div href="services.html" class="dropdown">
+        <a class="dropbtn active">Services</a>
+        <div class="dropdown-content">
+            <a href="services.html">Canopy Manufacturing</a>
+            <a href="services.html">Solar Installation</a>
+            <a href="services.html">Generators</a>
+            <a href="services.html">Fabrication Services</a>
+        </div>
+        </div>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="blog.html">Blogs</a>
+    
+        <div class="social-buttons">
+            <a href="https://www.facebook.com" target="_blank"><img width="100" height="50" src="assets/images/social/facebook-logo.svg" alt="Facebook"></a>
+            <a href="https://www.twitter.com" target="_blank"><img width="100" height="50" src="assets/images/social/twitter-logo.svg" alt="Twitter"></a>
+            <a href="https://www.linkedin.com" target="_blank"><img width="100" height="50" src="assets/images/social/linkedin-logo.svg" alt="LinkedIn"></a>
+        </div>
+    </nav>
+
     <h1>404 - Not Found</h1>
     <p>Sorry, the page you are looking for might be in another castle.</p>
 </body>
