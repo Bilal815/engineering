@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %} Home | {{ SITENAME }} {% endblock %}
+
+{% block custom_js_code %}
+<script src="{{ SITEURL }}/theme/assets/js/article.js"></script>
+{% endblock %}
+
+{% block header_container %}
+<!-- Banner Starts Here -->
+<header>
+  <div class="header-content">
+      <h1>Empowering Projects<br>with Precision</h1>
+      <p>Insights, Innovations, and Expertise in MEP Services</p>
+      <a href="#row" class="cta-button">Explore Blogs</a>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="blog-posts grid-system">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="all-blog-posts">
+          <input type="hidden" id="hidden-input" value='[
+          {% for article in articles %}
+            {
+              "thumbnail": "{{ article.thumbnail }}",
+              "category": "{{ article.category}}",
+              "alt": "{{ article.alt }}",
+              "slug": "{{ article.slug }}",
+              "title": "{{ article.title }}",
+              "author": [
+              {"name":"{{ article.author }}", "url":"{{ article.author.url }}"}      
+              ],
+              "date": "{{ article.date.strftime("%B %d, %Y") }}",
+              "resume": 
+              {% if article.resume %}
+              "{{ article.resume }}",
+              {% else %}
+              "",
+              {% endif %}
+              "tags": [
+              {% for tag in article.tags %}
+              { "name": "{{ tag }}", "url": "{{ tag.url }}" }{% if not loop.last %},{% endif %}
+              {% endfor %}
+              ],
+              "SITEURL": "{{ SITEURL }}"
+            }
+            {% if not loop.last %},{% endif %}
+          {% endfor %}
+          ]'>
+          {% include 'partial/articles_list.html' %}
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <!-- Include the sidebar partial -->
+        {% include 'partial/sidebar.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} {{page.title}} {% endblock %}
+
+{% block header_container %}
+<!-- Banner Starts Here -->
+<header>
+  <h1>About Us</h1>
+</header>
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+
+<div style="padding-bottom: 0px;" class="page-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 py-3">
+        {% if page.processed_content %}
+          {{ page.processed_content|safe }}
+        {% endif %}
+      </div>
+      <div class="col-lg-6 py-3">
+        <div class="img-fluid py-3 text-center">
+          <img height="auto" width="300px" src="{{SITEURL}}/{{page.thumbnail}}" alt="{{page.alt}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding-top: 0px;" class="page-section">
+  <div class="container">
+    {% if page.remaining_content %}
+      {{ page.remaining_content|safe }}
+    {% endif %}
+  </div>
+</div>
+
+{% endblock content %}

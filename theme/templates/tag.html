@@ -1,0 +1,23 @@
+{% extends "blog.html" %}
+{% block title %} {{tag|striptags|escape}} {% endblock %}
+
+
+{% block header_container %}
+<!-- Banner Starts Here -->
+<div class="container">
+  <div class="page-banner">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-md-6">
+        <nav aria-label="Breadcrumb">
+          <ul class="breadcrumb justify-content-center py-0 bg-transparent">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">{{ tag }}</li>
+          </ul>
+        </nav>
+        <h1 class="text-center">{{ tag }}</h1>
+        <p style="text-align: center;">Recent Tag Posts</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

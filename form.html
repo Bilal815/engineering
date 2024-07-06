@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form | Zainab Garden</title>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Material Design 3 CSS -->
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <!-- Material JavaScript -->
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+    <style>
+        body {
+            background: #776cd6be;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            max-width: 870px;
+            background: #fff;
+            padding: 2em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        /* Resize the image preview to 150x150 pixels */
+        .image-preview {
+            width: 300px;
+            height: 300px;
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+        }
+        .mdc-text-field, .mdc-select, .mdc-button {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .mdc-text-field__input, .mdc-select__anchor {
+            padding-top: 20px;
+        }
+        .mdc-select__menu {
+            width: 100%; /* Ensures the width of the dropdown matches the other fields */
+        }
+        h2, h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .mdc-button--raised {
+            background-color: #4a4157;
+            color: white;
+        }
+        .mdc-button--raised:hover {
+            background-color: #3700b3;
+        }
+        /* Custom CSS for Date of Birth Field */
+        .dob-container {
+            position: relative;
+        }
+        .dob-container .mdc-text-field__input[type="date"] {
+            position: relative;
+            z-index: 2;
+            background: transparent;
+        }
+        .dob-container .mdc-floating-label {
+            position: absolute;
+            top: 8px;
+            left: 16px;
+            z-index: 1;
+            background: #fff;
+            padding: 0 4px;
+            transition: transform 0.2s, font-size 0.2s;
+            transform-origin: top left;
+        }
+        .dob-container .mdc-text-field__input[type="date"]:focus ~ .mdc-notched-outline .mdc-notched-outline__notch .mdc-floating-label,
+        .dob-container .mdc-text-field__input[type="date"]:not(:placeholder-shown) ~ .mdc-notched-outline .mdc-notched-outline__notch .mdc-floating-label {
+            transform: scale(0.75) translateY(-20px) translateX(-2px);
+            color: #6200ee;
+        }
+        /* Additional styles for checkboxes */
+        .mdc-form-field {
+            display: flex;
+            align-items: center;
+        }
+        .mdc-checkbox {
+            margin-right: 10px;
+        }
+        .checkbox-label {
+            margin-bottom: 0;
+            margin-right: 20px;
+        }
+        /* Additional styles for the address input */
+        .address-text-field {
+            min-height: 100px;
+            align-items: flex-start;
+        }
+        .address-text-field .mdc-text-field__input {
+            height: 100px;
+            align-items: flex-start;
+            padding-top: 15px;
+            overflow: hidden;
+        }
+        /* Additional styles for the NIC and Phone number inputs */
+        .small-input {
+            width: calc(33% - 10px);
+            margin-right: 15px;
+        }
+        .small-input:last-child {
+            margin-right: 0;
+        }
+        /* Additional styles for the submit button and the declaration */
+        .declaration {
+            font-size: 0.8em;
+            margin-bottom: 20px;
+        }
+        .signature-field {
+            border-bottom: 1px solid black;
+        }
+        /* Additional styles for unit no., category, and size fields */
+        .unit-category-size {
+            display: flex;
+            justify-content: space-between;
+        }
+        .unit-category-size .mdc-text-field {
+            width: 30%;
+        }
+        /* Additional styles for Place and Date fields */
+        .place-date {
+            display: flex;
+            justify-content: space-between;
+        }
+        .place-date .mdc-text-field {
+            width: 48%;
+        }
+        /* Style the submit button to occupy the entire space */
+        .submit-button {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Default styles for signature container */
+        .signature-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .signature-field {
+            width: 100%; /* Initially, the canvas takes 100% width */
+            max-width: 400px; /* Max width for larger screens */
+        }
+
+        .mdc-data-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .mdc-data-table__cell--numeric {
+            text-align: right;
+        }
+
+        .mdc-data-table__header-cell-center {
+            text-align: center;
+        }
+
+        /* Media query for smaller screens (e.g., mobile) for signature */
+        @media screen and (max-width: 768px) {
+            .signature-field {
+                max-width: 300px; /* Adjust max width for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="JB_logo.jpeg" style="width: 190px; height: 140px; float: left; margin: 0px -150px 15px 0px; filter: brightness(1.05);" alt="JB_star_builders_and_developers_logo">
+            <h1>Zainab Garden Extension</h1>
+            <h2>Application Form</h2>
+        </div>
+        <img src="zainab_garden_logo.jpeg" style="width: 240px; height: 220px; display: block; margin-left: auto; margin-right: auto;" alt="zainab_garden_logo">
+        <br>
+        <br>
+        <p>Dear Sir,</p>
+        <p>I, the undersigned, request you to please register my name for the booking in your project "Zainab Garden" on prescribed schedule of payment</p>
+        <form method="POST" action="https://script.google.com/macros/s/AKfycbymD_bRg_qW9_GcPrJzdSXOuuyBhlXFeUwKCLhlop-mcsAqbqG38-B-rI7yLNMjn6Rs/exec" id="submit-to-google-sheet">
+            <div class="image-upload">
+                <!-- Add Image Submission with Preview here 
+                <img id="image-preview" class="image-preview" src="#" alt="Image Preview">-->
+                <input type="file" id="image-input" name="image" accept="image/*" onchange="previewImage(this);">
+            </div>
+            <div class="mdc-text-field mdc-text-field--outlined">
+                <input type="text" id="name-input" name="name" class="mdc-text-field__input" required>
+                <div class="mdc-notched-outline">
+                    <p>Mr/Ms/Ms</p>
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="name-input" class="mdc-floating-label">Name</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <div class="mdc-text-field mdc-text-field--outlined">
+                <input type="text" id="father-name-input" name="fatherName" class="mdc-text-field__input" required>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="father-name-input" class="mdc-floating-label">Father's Name</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <!-- Date of Birth Field -->
+            <div class="mdc-text-field mdc-text-field--outlined dob-container">
+                <input style="height: 30%;" type="date" id="dob-input" name="dob" class="mdc-text-field__input" required>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="dob-input" class="mdc-floating-label">Date of Birth</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <!-- Unit No., Category, and Size Fields -->
+            <div class="unit-category-size">
+                <div class="mdc-text-field mdc-text-field--outlined">
+                    <input type="text" id="unit-input" name="unit" class="mdc-text-field__input" required>
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                            <label for="unit-input" class="mdc-floating-label">Unit No.</label>
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+                <div class="mdc-text-field mdc-text-field--outlined">
+                    <input type="text" id="category-input" name="category" class="mdc-text-field__input" required>
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                            <label for="category-input" class="mdc-floating-label">Category</label>
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+                <div class="mdc-text-field mdc-text-field--outlined">
+                    <input type="text" id="size-input" name="size" class="mdc-text-field__input" required>
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                            <label for="size-input" class="mdc-floating-label">Size</label>
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdc-select">
+                <div class="mdc-select__anchor">
+                    <span class="mdc-select__ripple"></span>
+                    <span class="mdc-select__selected-text"></span>
+                    <span class="mdc-select__dropdown-icon">
+                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5">
+                            <polygon
+                                class="mdc-select__dropdown-icon-inactive"
+                                stroke="none"
+                                fill-rule="evenodd"
+                                points="7 10 12 15 17 10">
+                            </polygon>
+                            <polygon
+                                class="mdc-select__dropdown-icon-active"
+                                stroke="none"
+                                fill-rule="evenodd"
+                                points="7 15 12 10 17 15">
+                            </polygon>
+                        </svg>
+                    </span>
+                    <span class="mdc-select__label" id="plot-size-label">Plot Size</span>
+                    <span class="mdc-line-ripple"></span>
+                </div>
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+                    <ul class="mdc-list" role="listbox" name="plotSize">
+                        <li class="mdc-list-item" data-value="80">
+                            <span class="mdc-list-item__text">80 sq. yards</span>
+                        </li>
+                        <li class="mdc-list-item" data-value="120">
+                            <span class="mdc-list-item__text">120 sq. yards</span>
+                        </li>
+                        <li class="mdc-list-item" data-value="240">
+                            <span class="mdc-list-item__text">240 sq. yards</span>
+                        </li>
+                        <li class="mdc-list-item" data-value="600">
+                            <span class="mdc-list-item__text">600 sq. yards</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Checkbox group for plot sizes -->
+            <div class="mdc-form-field">
+                <div class="mdc-checkbox">
+                    <input type="checkbox" id="checkbox-5-marla" class="mdc-checkbox__native-control" name="plotSize" value="5 Marla"/>
+                    <div class="mdc-checkbox__background">
+                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.10,19.28 22.79,4.59"/>
+                        </svg>
+                        <div class="mdc-checkbox__mixedmark"></div>
+                    </div>
+                </div>
+                <label for="checkbox-5-marla" class="checkbox-label">150 Sq. Yards (5 Marla)</label>
+            </div>
+            <!-- Repeat for other plot sizes ... -->
+
+            <!-- Address input -->
+            <div class="mdc-text-field mdc-text-field--outlined address-text-field">
+                <textarea id="address-input" name="address" class="mdc-text-field__input" rows="4" cols="40" required></textarea>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="address-input" class="mdc-floating-label">Postal / Residential Address</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <!-- NIC Number Field -->
+            <div class="mdc-text-field mdc-text-field--outlined small-input">
+                <input type="text" id="nic-input" name="nic" class="mdc-text-field__input" required>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="nic-input" class="mdc-floating-label">NIC Number</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <!-- Phone Number Fields -->
+            <div class="mdc-text-field mdc-text-field--outlined small-input">
+                <input type="text" id="telephone-input" name="telephone" class="mdc-text-field__input" required>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="telephone-input" class="mdc-floating-label">Telephone</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+            <div class="mdc-text-field mdc-text-field--outlined small-input">
+                <input type="text" id="cell-input" name="cell" class="mdc-text-field__input" required>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="cell-input" class="mdc-floating-label">Cell</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+            <div class="mdc-text-field mdc-text-field--outlined small-input">
+                <input type="text" id="office-input" name="office" class="mdc-text-field__input" required>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="office-input" class="mdc-floating-label">Office</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <!-- Nominee's Name Field -->
+            <div class="mdc-text-field mdc-text-field--outlined">
+                <input type="text" id="nominee-name-input" name="nomineeName" class="mdc-text-field__input" required>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="nominee-name-input" class="mdc-floating-label">Nominee's Name</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <!-- NIC Number Field under Nominee's Name -->
+            <div class="mdc-text-field mdc-text-field--outlined">
+                <input type="text" id="nic-input" name="nic" class="mdc-text-field__input" required>
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="nic-input" class="mdc-floating-label">NIC Number</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+
+            <!-- Place and Date Fields -->
+            <div class="place-date">
+                <div class="mdc-text-field mdc-text-field--outlined">
+                    <input type="text" id="place-input" name="place" class="mdc-text-field__input" required>
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                            <label for="place-input" class="mdc-floating-label">Place</label>
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+                <div class="mdc-text-field mdc-text-field--outlined">
+                    <input type="text" id="date-input" name="date" class="mdc-text-field__input" required>
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                            <label for="date-input" class="mdc-floating-label">Date</label>
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Declaration and Signature -->
+            <p class="declaration">I declare that the information provided above is true and accurate to the best of my knowledge.</p>
+            <div class="submit-container">
+                <!-- Signature Field (Canvas) -->
+                <div class="signature-field">
+                    <canvas id="signature-canvas"></canvas>
+                </div>
+                <!-- Clear Signature Button -->
+                <button class="mdc-button mdc-button--outlined" type="button" onclick="clearSignature()">Clear Signature</button>
+                <button class="mdc-button mdc-button--raised" type="submit">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">Submit</span>
+                </button>
+            </div>
+
+            <!-- Payment Schedule Table -->
+            <h1 class="center-align">Payment Schedule</h1>
+            <div class="mdc-data-table">
+                <table class="mdc-data-table__table" aria-label="Payment Schedule">
+                    <thead>
+                        <tr class="mdc-data-table__header-row">
+                            <th class="mdc-data-table__header-cell"></th>
+                            <th class="mdc-data-table__header-cell" colspan="3">Residential Plots</th>
+                            <th class="mdc-data-table__header-cell">Commercial Guest House</th>
+                        </tr>
+                        <tr class="mdc-data-table__header-row">
+                            <th class="mdc-data-table__header-cell">Mode of Payment</th>
+                            <th class="mdc-data-table__header-cell">150 SQ. Yard</th>
+                            <th class="mdc-data-table__header-cell">300 SQ. Yard</th>
+                            <th class="mdc-data-table__header-cell">600 SQ. Yard</th>
+                            <th class="mdc-data-table__header-cell">150 SQ. Yard</th>
+                        </tr>
+                    </thead>
+                    <tbody class="mdc-data-table__content">
+                        <tr class="mdc-data-table__row">
+                            <td class="mdc-data-table__cell">On Booking</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                        </tr>
+                        <tr class="mdc-data-table__row">
+                            <td class="mdc-data-table__cell">Installment 1</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                        </tr>
+                        <tr class="mdc-data-table__row">
+                            <td class="mdc-data-table__cell">Commercial Guest House</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                        </tr>
+                        <tr class="mdc-data-table__row">
+                            <td class="mdc-data-table__cell">Installment 2</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">$XXXX</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+
+    <!-- Initialize Material Components and handle the Plot Size label -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbymD_bRg_qW9_GcPrJzdSXOuuyBhlXFeUwKCLhlop-mcsAqbqG38-B-rI7yLNMjn6Rs/exec' // Replace with your web app URL
+        const form = document.forms['submit-to-google-sheet'];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            fetch(scriptURL, { method: 'POST', body: formData})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message));
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const textFields = document.querySelectorAll('.mdc-text-field');
+            for (const textField of textFields) {
+                mdc.textField.MDCTextField.attachTo(textField);
+            }
+
+            const select = mdc.select.MDCSelect.attachTo(document.querySelector('.mdc-select'));
+            select.listen('MDCSelect:change', () => {
+                console.log(`Plot size selected: ${select.value} square yards`);
+                // Remove Plot Size label once an option is selected
+                if (select.value) {
+                    document.getElementById('plot-size-label').style.display = 'none';
+                }
+            });
+        });
+
+        // Function to preview the uploaded image
+        function previewImage(input) {
+            const preview = document.getElementById('image-preview');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Initialize Signature Pad
+        var canvas = document.getElementById('signature-canvas');
+        var signaturePad = new SignaturePad(canvas, {
+            backgroundColor: 'white',
+            penColor: 'black',
+            minWidth: 2,
+            maxWidth: 3,
+        });
+
+        // Clear the signature
+        function clearSignature() {
+            signaturePad.clear();
+        }
+
+    </script>
+</body>
+</html>

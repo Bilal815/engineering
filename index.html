@@ -8,6 +8,8 @@
     <title>F&D Engineering Services - Powering Your Future</title>
     <link rel="stylesheet" href="assets/styles/styles.css">
     <script src="assets/styles/script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -47,35 +49,36 @@
         </header>
 
         <!-- Services section -->
+        <div class="bg-img" style="background-image: url('file:///home/bilal/Documents/engineering/assets/images/pages/solar_frame_fabrication.jpeg');"></div>
         <section>
             <h3>Experience Top-Notch Manufacturing Solutions for Canopies that Stand the Test of Time</h3>
-            <img src="assets/images/pages/genset_canopy.jpeg" alt="Canopy Image">
+            <!--<img src="assets/images/pages/genset_canopy.jpeg" alt="Canopy Image">-->
             <p>Brief description highlighting the quality, durability, and customization options of the canopies.</p>
             <a href="services.html" class="cta-btn">Learn More</a>
         </section>
         
-        <section>
+        <section class="section" style="background-image: url('file:///home/bilal/Documents/engineering/assets/images/pages/solar_installation.jpeg');">
             <h3>Harness the Power of the Sun: Professional Solar Installation Services Tailored to Your Needs</h3>
-            <img src="assets/images/pages/solar_installation.jpeg" alt="Solar Image">
+            <!--<img src="assets/images/pages/solar_installation.jpeg" alt="Solar Image">-->
             <p>Concise description emphasizing the benefits of solar energy and the expertise of F and D Engineering in installation.</p>
             <a href="services.html" class="cta-btn">Discover More</a>
         </section>
         
-        <section>
+        <section class="section" style="background-image: url('file:///home/bilal/Documents/engineering/assets/images/pages/genset_canopy.jpeg');">
             <h3>Reliable Energy Solutions: Expert Installation of Diesel and Gas Generators for Uninterrupted Power Supply</h3>
-            <img src="generators.jpg" alt="Generators Image">
+            <!--<img src="generators.jpg" alt="Generators Image">-->
             <p>Informative description highlighting the importance of reliable power solutions and the proficiency of F and D Engineering in generator installation.</p>
             <a href="services.html" class="cta-btn">Explore Options</a>
         </section>
         
-        <section>
+        <section class="section" style="background-image: url('file:///home/bilal/Documents/engineering/assets/images/pages/solar_frame_fabrication.jpeg');">
             <h3>Craftsmanship at its Finest: Specialized Fabrication Services for All Your Engineering Needs</h3>
-            <img src="assets/images/pages/solar_frame_fabrication.jpeg" alt="Fabrication Image">
+            <!--<img src="assets/images/pages/solar_frame_fabrication.jpeg" alt="Fabrication Image">-->
             <p>Brief overview of the fabrication capabilities, precision, and attention to detail offered by F and D Engineering.</p>
             <a href="services.html" class="cta-btn">See Our Work</a>
         </section>
         
-        <section>
+        <section class="section" style="background-image: url('file:///home/bilal/Documents/engineering/assets/images/pages/solar_frame_fabrication.jpeg');">
             <h3>Unlock the Full Potential of Your Projects with F and D Engineering: Your Trusted Engineering Partner</h3>
             
             <!-- Clients section -->
@@ -88,22 +91,50 @@
         </section>
         
         <!-- Footer -->
-        <footer class="footer">
-            <!-- Contact Us section -->
-            <div class="contact-info">
-                <p>Phone: <a style="text-decoration: none" href="tel:++923358221316">+92 335 8221316</a></p>
-                <p>Email: <a style="text-decoration: none" href="mailto:wasif.ali@fanddeng.com">wasif.ali@fanddeng.com</a></p>
-                <p>Address: F&D Engineering, Plot No. 97 Area 37-B, Landhi, Karachi</p>
+        <footer class="footer pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-3 col-md">
+                  <h5>Services</h5>
+                  <ul class="list-unstyled text-small">
+                    <li class="mb-1"><a class="link-secondary" href="#">Resource</a></li>
+                    <li class="mb-1"><a class="link-secondary" href="#">Resource name</a></li>
+                    <li class="mb-1"><a class="link-secondary" href="#">Another resource</a></li>
+                    <li class="mb-1"><a class="link-secondary" href="#">Final resource</a></li>
+                  </ul>
+                </div>
+                <div class="col-3 col-md">
+                    <h5>About Us</h5>
+                </div>
+                <div class="col-3 col-md">
+                    <!-- Contact Us section -->
+                    <h5>Contact us</h5>
+                    <ul class="list-unstyled text-small">
+                        <li class="mb-1"><a class="link-secondary" href="tel:+923358221316">+92 335 8221316</a></li>
+                        <li class="mb-1"><a class="link-secondary" href="mailto:wasif.ali@fanddeng.com">wasif.ali@fanddeng.com</a></li>
+                        <li class="mb-1"><a class="link-secondary" href="#">F&D Engineering, Plot No. 97 Area 37-B, Landhi, Karachi</a></li>
+                    </ul>
+                </div>
+                <div class="col-3 col-md">
+                    <h5>Blogs</h5>
+                </div>
+                <div class="col-12 col-md">
+                    <small class="d-block mb-3 text-muted">&copy; <span id="currentYear"></span> F and D Engineering. All rights reserved.</small>
+                    <p>Designed and Developed by <a style="color: white; font-weight: bold;" href="https://www.linkedin.com/in/bilal-ahmed-technical--marketing-writer/">Bilal Ahmed</a></p>
+                </div>
             </div>
             
             <!-- Social buttons -->
             <div class="social-media">
-                <a style="text-decoration: none" href="#" target="_blank">LinkedIn</a>
-                <a style="text-decoration: none" href="#" target="_blank">Twitter</a>
-            </div>
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">Twitter</a>
+            </div> 
             
-            <p>&copy; <span id="currentYear"></span> F and D Engineering. All rights reserved. | Privacy Policy | Terms of Service</p>    
+            <div class="text-center p-3">
+                <p>Privacy Policy | Terms of Service</p>
+            </div>
         </footer>
+
+
 
         <script>
             // JavaScript code to get the current year

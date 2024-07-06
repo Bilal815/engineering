@@ -1,0 +1,714 @@
+{% extends "base.html" %}
+{% block title %} Home | {{ SITENAME }} {% endblock %}
+
+{% block custom_css_code %}
+<style>
+    /*-- -------------------------- -->
+    <---         TOP CATEGORIES Collection         -->
+    <--- -------------------------- -*/
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #collection-1577 {
+        padding: var(--sectionPadding);
+        position: relative;
+        z-index: 1;
+        }
+        #collection-1577 .cs-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+        }
+        #collection-1577 .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: center;
+        }
+        #collection-1577 .cs-title {
+        margin: 0;
+        }
+        #collection-1577 .cs-topper {
+        color: var(--secondary);
+        }
+        #collection-1577 .cs-card-group {
+        list-style: none;
+        width: 100%;
+        /* changes to 1280px on tablet */
+        max-width: 34.375rem;
+        margin: auto;
+        padding: 0;
+        display: grid;
+        grid-template-rows: repeat(12, 1fr);
+        grid-auto-flow: row;
+        }
+        #collection-1577 .cs-item {
+        max-width: 100%;
+        grid-column: span 12;
+        position: relative;
+        }
+        #collection-1577 .cs-item:hover .cs-background img {
+        opacity: .5;
+        transform: scale(1.4);
+        }
+        #collection-1577 .cs-link {
+        text-decoration: none;
+        /* changes at tablet */
+        height: 60vw;
+        max-height: 21.75rem;
+        padding: 2.5rem 1.5rem;
+        /* prevents padding from affecting height and width */
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+        #collection-1577 .cs-background {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* set to -2 so the gradient overlay (z-index: -1) appears in front of the images, but behind the text */
+        z-index: -2;
+        }
+        #collection-1577 .cs-background img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .6s, opacity .3s;
+        }
+        #collection-1577 .cs-category {
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1.2em;
+        text-align: center;
+        text-decoration: none;
+        width: fit-content;
+        /* 12px - 20px top & bottom, 16px - 24px sides*/
+        padding: clamp(0.75rem, 2vw, 1.25rem) clamp(1rem, 3vw, 1.5rem);
+        color: var(--main-white, #ffffff);
+        position: relative;
+        transition: color .3s;
+        /* blurred background - done as a pseudo element so backdrop-filter won't distort the text */
+        }
+        #collection-1577 .cs-category:hover {
+        color: var(--headerColor);
+        }
+        #collection-1577 .cs-category:hover:before {
+        background-color: #ffffff;
+        }
+        #collection-1577 .cs-category:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(8px);
+        --webkit-backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: background-color 0.3s;
+        }
+    }
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #collection-1577 .cs-card-group {
+        max-width: 80rem;
+        grid-template-columns: repeat(12, 1fr);
+        }
+        #collection-1577 .cs-item {
+        /* 180px - 348px */
+        height: clamp(11.75rem, 25vw, 21.75rem);
+        grid-column: span 3;
+        }
+  }
+  
+
+/*-- -------------------------- -->
+<---        NEW Collection          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+        #collection-1602 {
+        padding: var(--sectionPadding);
+        }
+        #collection-1602 .cs-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+        position: relative;
+        z-index: 1;
+        }
+        #collection-1602 .cs-content {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        }
+        #collection-1602 .cs-title {
+        margin: 0;
+        }
+        #collection-1602 .cs-button-group {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        /* 16px - 32px */
+        gap: clamp(1rem, 4vw, 2rem);
+        }
+        #collection-1602 .cs-button {
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.2em;
+        text-transform: uppercase;
+        padding: 0;
+        color: var(--bodyTextColor);
+        background-color: transparent;
+        border: none;
+        position: relative;
+        transition: color 0.3s;
+        }
+        #collection-1602 .cs-button:before {
+        content: "";
+        width: 0;
+        height: 1px;
+        background: var(--primary);
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s;
+        }
+        #collection-1602 .cs-button:hover {
+        color: var(--primary);
+        cursor: pointer;
+        }
+        #collection-1602 .cs-button:hover:before {
+        width: 100%;
+        }
+        #collection-1602 .cs-button.cs-active {
+        color: var(--primary);
+        }
+        #collection-1602 .cs-button.cs-active:before {
+        width: 100%;
+        }
+        #collection-1602 .cs-listing-wrapper {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        }
+        #collection-1602 .cs-listing {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        justify-items: center;
+        grid-auto-flow: row;
+        /* 16px - 20px */
+        gap: clamp(1rem, 1.5vw, 1.25rem);
+        position: relative;
+        transform-style: preserve-3d;
+        perspective: 700px;
+        transition: transform 0.7s, opacity 0.3s, visibility 0.5s, top 0.3s, left 0.3s;
+        /* makes the transform scaling origin the top left corner, dictates the direction by which the scale transforms animate towards */
+        transform-origin: left top;
+        }
+        #collection-1602 .cs-listing.cs-hidden {
+        /* hidden galleries have a 0 opacity, and we animate the opacity to 1 when they become active */
+        opacity: 0;
+        /* by using visibility:hidden instead of display:none, we can see the animations from the opacity and transforms, display:none won't render animations. */
+        visibility: hidden;
+        position: absolute;
+        /* this top and left value help control the animation, by setting it to position absolute and left 0, the gallery won't fly off screen to the left, it will stop its position to be at the left edge of the .cs-container (left: 0). Same for the top:0 value, the gallery won't go past that position when it animates */
+        top: 0;
+        left: 0;
+        /* prevents the hidden galleries from overflowing the section, and makes a nice animations to transition to and from */
+        transform: scaleY(0) scaleX(0);
+        /* prevents the mouse from interacting with it */
+        pointer-events: none;
+        }
+        #collection-1602 .cs-listing.cs-hidden .cs-image {
+        opacity: 0;
+        /* when gallery is hidden, add these styles to the cs-image to animate from when cs-hidden is removed from the .cs-gallery */
+        transform: translateY(2.1875rem) rotateX(90deg);
+        }
+        #collection-1602 .cs-listing.cs-hidden .cs-item {
+        transform: rotateY(180deg);
+        opacity: 0;
+        }
+        #collection-1602 .cs-item {
+        width: 100%;
+        max-width: 23.4375rem;
+        /* overwrites the default 'min-width: auto' value, keeping all grid items the same width no matter what*/
+        min-width: 0;
+        opacity: 1;
+        padding: 1rem;
+        border: 1px solid #e8e8e8;
+        transform: rotateY(0);
+        transition: transform 0.7s, opacity 0.3s;
+        }
+        #collection-1602 .cs-item:nth-of-type(1) {
+        transition-delay: 0.1s;
+        }
+        #collection-1602 .cs-item:nth-of-type(2) {
+        transition-delay: 0.2s;
+        }
+        #collection-1602 .cs-item:nth-of-type(3) {
+        transition-delay: 0.3s;
+        }
+        #collection-1602 .cs-item:nth-of-type(4) {
+        transition-delay: 0.4s;
+        }
+        #collection-1602 .cs-item:nth-of-type(5) {
+        transition-delay: 0.5s;
+        }
+        #collection-1602 .cs-item:nth-of-type(6) {
+        transition-delay: 0.6s;
+        }
+        #collection-1602 .cs-item:nth-of-type(7) {
+        transition-delay: 0.7s;
+        }
+        #collection-1602 .cs-item:nth-of-type(8) {
+        transition-delay: 0.8s;
+        }
+        #collection-1602 .cs-item:nth-of-type(9) {
+        transition-delay: 0.1s;
+        }
+        #collection-1602 .cs-item:nth-of-type(10) {
+        transition-delay: 0.1s;
+        }
+        #collection-1602 .cs-item:nth-of-type(11) {
+        transition-delay: 0.1s;
+        }
+        #collection-1602 .cs-item:nth-of-type(12) {
+        transition-delay: 0.1s;
+        }
+        #collection-1602 .cs-link {
+        text-decoration: none;
+        }
+        #collection-1602 .cs-link:hover .cs-picture img {
+        transform: scale(1.1);
+        }
+        #collection-1602 .cs-picture-group {
+        width: auto;
+        height: 18.75rem;
+        margin-bottom: 1.25rem;
+        position: relative;
+        }
+        #collection-1602 .cs-picture {
+        width: 100%;
+        height: 100%;
+        background-color: #f6f6f6;
+        overflow: hidden;
+        display: block;
+        }
+        #collection-1602 .cs-picture img {
+        width: 100%;
+        height: 100%;
+        /* using object-fit contain to keep the entirety of the product image in the frame */
+        /* feel free to change this to 'cover', or adjust the background-color above if you have consistent backgrounds on your products */
+        object-fit: contain;
+        transition: transform 0.6s;
+        }
+        #collection-1602 .cs-offer {
+        font-size: 0.8125rem;
+        font-weight: 700;
+        line-height: 1.2em;
+        text-transform: uppercase;
+        letter-spacing: 1.3px;
+        padding: 0.375rem;
+        color: #fff;
+        background: #ff4747;
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        }
+        #collection-1602 .cs-category {
+        font-size: 1rem;
+        line-height: 1.5em;
+        color: #767676;
+        }
+        #collection-1602 .cs-name {
+        /* 20px - 25px */
+        font-size: clamp(1.25rem, 1vw, 1.5625rem);
+        font-weight: 700;
+        line-height: 1.2em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        margin: 0;
+        color: var(--headerColor);
+        overflow: hidden;
+        }
+        #collection-1602 .cs-actions {
+        margin-top: 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+        #collection-1602 .cs-price {
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1.2em;
+        color: var(--secondary);
+        }
+        #collection-1602 .cs-was-price {
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.2em;
+        text-decoration: line-through;
+        color: #767676;
+        }
+        #collection-1602 .cs-stars {
+        margin-top: 0.25rem;
+        display: flex;
+        }
+        #collection-1602 .cs-star {
+        width: 1.25rem;
+        height: 1.25rem;
+        }
+        #collection-1602 .cs-buy {
+        max-height: 2.5rem;
+        padding: 0.5rem;
+        background: none;
+        border: 2px solid var(--primary);
+        border-radius: 0.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        #collection-1602 .cs-basket {
+        width: 1.5rem;
+        height: auto;
+        }
+    }
+    /* Tablet - 768px */
+    @media only screen and (min-width: 48rem) {
+        #collection-1602 .cs-content {
+        flex-direction: row;
+        justify-content: space-between;
+        }
+        #collection-1602 .cs-listing {
+        grid-template-columns: repeat(3, 1fr);
+        }
+        #collection-1602 .cs-item {
+        max-width: none;
+        }
+        #collection-1602 .cs-picture-group {
+        /* 200px - 320px */
+        height: clamp(12.5rem, 23vw, 20rem);
+        }
+    }  
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- ============================================ -->
+<!--                  TOP CATEGORIES Collection                  -->
+<!-- ============================================ -->
+<section id="collection-1577">
+    <div class="cs-container">
+        <span class="cs-topper">Categories</span>
+        <h2 class="cs-title">Top Categories</h2>
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <a href="https://api.escuelajs.co/api/v1/products/1" class="cs-link">
+                    <span class="cs-category">Clothes</span>
+                    <picture class="cs-background" aria-hidden="true">
+                        <source media="(max-width: 600px)" srcset="https://via.placeholder.com/365x201/CCCCCC/000000">
+                        <source media="(min-width: 601px)" srcset="https://via.placeholder.com/365x201/CCCCCC/000000">
+                        <img loading="lazy" decoding="async" src="https://via.placeholder.com/365x201/CCCCCC/000000" width="365" height="201" alt="Clothes">
+                    </picture>
+                </a>
+            </li>
+            <li class="cs-item">
+                <a href="https://api.escuelajs.co/api/v1/products/2" class="cs-link">
+                    <span class="cs-category">Electronics</span>
+                    <picture class="cs-background" aria-hidden="true">
+                        <source media="(max-width: 600px)" srcset="https://via.placeholder.com/365x201/CCCCCC/000000">
+                        <source media="(min-width: 601px)" srcset="https://via.placeholder.com/365x201/CCCCCC/000000">
+                        <img loading="lazy" decoding="async" src="https://via.placeholder.com/365x201/CCCCCC/000000" width="365" height="201" alt="Electronics">
+                    </picture>
+                </a>
+            </li>
+            <li class="cs-item">
+                <a href="https://api.escuelajs.co/api/v1/products/3" class="cs-link">
+                    <span class="cs-category">Furniture</span>
+                    <picture class="cs-background" aria-hidden="true">
+                        <source media="(max-width: 600px)" srcset="https://via.placeholder.com/365x201/CCCCCC/000000">
+                        <source media="(min-width: 601px)" srcset="https://via.placeholder.com/365x201/CCCCCC/000000">
+                        <img loading="lazy" decoding="async" src="https://via.placeholder.com/365x201/CCCCCC/000000" width="365" height="201" alt="Furniture">
+                    </picture>
+                </a>
+            </li>
+            <li class="cs-item">
+                <a href="https://api.escuelajs.co/api/v1/products/4" class="cs-link">
+                    <span class="cs-category">Shoes</span>
+                    <picture class="cs-background" aria-hidden="true">
+                        <source media="(max-width: 600px)" srcset="https://via.placeholder.com/365x201/CCCCCC/000000">
+                        <source media="(min-width: 601px)" srcset="https://via.placeholder.com/365x201/CCCCCC/000000">
+                        <img loading="lazy" decoding="async" src="https://via.placeholder.com/365x201/CCCCCC/000000" width="365" height="201" alt="Shoes">
+                    </picture>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<section id="collection-1602">
+    <!-- NEW COLLECTION -->
+    <div class="cs-container">
+        <div class="cs-content">
+            <h2 class="cs-title">New Collection</h2>
+            <div class="cs-button-group">
+                <button class="cs-button" data-filter="one">
+                    New Arrival
+                </button>
+                <button class="cs-button" data-filter="two">
+                    Top Rating
+                </button>
+                <button class="cs-button" data-filter="three">
+                    Best Seller
+                </button>
+            </div>
+        </div>
+        <div class="cs-listing-wrapper">
+            <!--Listing 1-->
+            <div class="cs-listing" data-category="one">
+                <div class="cs-item">
+                    <a href="" class="cs-link">
+                        <div class="cs-picture-group">
+                            <picture class="cs-picture">
+                                <source media="(max-width: 600px)"
+                                        srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/ecomm-beanie.png">
+                                <source media="(min-width: 601px)"
+                                        srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/ecomm-beanie.png">
+                                <img loading="lazy" decoding="async"
+                                        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/ecomm-beanie.png"
+                                        alt="gallery" width="305" height="400">
+                            </picture>
+                            <span class="cs-offer">-20%</span>
+                        </div>
+                        <div class="cs-details">
+                            <span class="cs-category">Run, Dress</span>
+                            <h3 class="cs-name">Blue Chunky Beanie</h3>
+                            <div class="cs-actions">
+                                <div class="cs-flex">
+                                    <span class="cs-price">$7.00</span>
+                                    <span class="cs-was-price">$12.00</span>
+                                    <div class="cs-stars">
+                                        <img class="cs-star"
+                                                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        <img class="cs-star"
+                                                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        <img class="cs-star"
+                                                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        <img class="cs-star"
+                                                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        <img class="cs-star"
+                                                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                    </div>
+                                </div>
+                                <button class="cs-buy">
+                                    <img class="cs-basket"
+                                            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/ecomm-bag-icon.svg"
+                                            alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cs-item">
+                    <a href="" class="cs-link">
+                        <div class="cs-picture-group">
+                            <picture class="cs-picture">
+                                <source media="(max-width: 600px)"
+                                        srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/ecomm-alpaca.png">
+                                <source media="(min-width: 601px)"
+                                        srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/ecomm-alpaca.png">
+                                <img loading="lazy" decoding="async"
+                                        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/ecomm-alpaca.png"
+                                        alt="gallery" width="305" height="400">
+                            </picture>
+                            <span class="cs-offer">-20%</span>
+                        </div>
+                        <div class="cs-details">
+                            <span class="cs-category">Run, Dress</span>
+                            <h3 class="cs-name">Oversized Alpaca Crew</h3>
+                            <div class="cs-actions">
+                                <div class="cs-flex">
+                                    <span class="cs-price">$7.00</span>
+                                    <span class="cs-was-price">$12.00</span>
+                                    <div class="cs-stars">
+                                        <img class="cs-star"
+                                                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        <img class="cs-star"
+                                                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        <img class="cs-star"
+                                                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        <img class="cs-star"
+                                                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        <img class="cs-star"
+                                                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                    </div>
+                                </div>
+                                <button class="cs-buy">
+                                    <img src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/ecomm-bag-icon.svg"
+                                            alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+                                
+{% endblock %}
+
+{% block custom_js_code %}
+<script>
+    // Define store base URL
+    const baseUrl = "https://api.escuelajs.co/api/v1/";
+
+    // Define the CORS proxy URL
+    const corsProxy = "https://cors-anywhere.herokuapp.com/";
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Define the endpoint
+        const endpoint = "categories?limit=4";
+    
+        // Construct the full URL with CORS proxy
+        const fullUrl = corsProxy + baseUrl + endpoint;
+
+        // Fetching data from the API
+        fetch(fullUrl)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                // Find the main container
+                const mainContainer = document.querySelector(".cs-container");
+                if (!mainContainer) {
+                    console.error("No element found with class .cs-container");
+                    return;
+                }
+
+                // Remove any existing ul container within the main container
+                const existingUl = mainContainer.querySelector('ul');
+                if (existingUl) {
+                    mainContainer.removeChild(existingUl);
+                }
+
+                // Create a single ul element to contain all category items
+                const ulContainer = document.createElement('ul');
+                ulContainer.classList.add('cs-card-group');
+                
+                // Loop through each category in the API response
+                data.forEach(category => {
+                    // Create HTML string for the category item
+                    const categoryItemHTML = `
+                    <li class="cs-item">
+                        <a href="${baseUrl}/product/${category.id}" class="cs-link">
+                            <span class="cs-category">${category.name}</span>
+                            <picture class="cs-background" aria-hidden="true">
+                                <source media="(max-width: 600px)" srcset="${category.image.replace(/^http:\/\//i, 'https://')}">
+                                <source media="(min-width: 601px)" srcset="${category.image.replace(/^http:\/\//i, 'https://')}">
+                                <img loading="lazy" decoding="async" src="${category.image.replace(/^http:\/\//i, 'https://')}" width="365" height="201" alt="${category.name}">
+                            </picture>
+                        </a>
+                    </li>
+                    `;
+                    // Create an element from the HTML string
+                    const tempElement = document.createElement('div');
+                    tempElement.innerHTML = categoryItemHTML;
+                    const categoryItemElement = tempElement.firstElementChild;
+                    
+                    // Append the category item element directly to the ul container
+                    ulContainer.appendChild(categoryItemElement);
+                });
+
+                // Append the ul container to the main container in the document
+                mainContainer.appendChild(ulContainer);
+            })
+            .catch((error) => console.error("Error fetching categories:", error));
+    });
+
+    class GalleryFilter {
+        filtersSelector = ".cs-button";
+        imagesSelector = ".cs-listing";
+        activeClass = "cs-active";
+        hiddenClass = "cs-hidden";
+
+        constructor() {
+            const $filters = document.querySelectorAll(this.filtersSelector);
+            this.$activeFilter = $filters[0];
+            this.$images = document.querySelectorAll(this.imagesSelector);
+
+            this.$activeFilter.classList.add(this.activeClass);
+
+            for (const $filter of $filters) {
+                $filter.addEventListener("click", () => this.onClick($filter));
+            }
+        }
+
+        onClick($filter) {
+            this.filter($filter.dataset.filter);
+
+            const { activeClass } = this;
+
+            this.$activeFilter.classList.remove(activeClass);
+            $filter.classList.add(activeClass);
+
+            this.$activeFilter = $filter;
+        }
+
+        filter(filter) {
+            const showAll = filter == "all";
+            const { hiddenClass } = this;
+
+            for (const $image of this.$images) {
+                const show = showAll || $image.dataset.category == filter;
+                $image.classList.toggle(hiddenClass, !show);
+            }
+        }
+    }
+
+    new GalleryFilter(); 
+</script>
+{% endblock %}
