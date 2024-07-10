@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', function() {
                       </div>
                     </div>
                     <div class="body">
-                      <h5 class="post-title"><a href="${article.slug}">${article.title}</a></h5>
+                      <h5 class="post-title"><a href="${article.SITEURL}/${article.slug}">${article.title}</a></h5>
                       <div class="post-date">Posted on <a href="#">${article.date}</a></div>
                       ${article.resume ? `<p>${article.resume}</p>` : ''}
                     </div>
