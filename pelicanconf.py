@@ -80,11 +80,11 @@ AUTHOR_URL = 'author/{slug}/'
 AUTHOR_URL_SAVE_AS = 'author/{slug}/index.html'
 
 # Pages
-DIRECT_TEMPLATES = ['index', 'services', 'shop', 'blog']
+DIRECT_TEMPLATES = ['index', 'services', 'shop', 'news']
 TEMPLATE_PAGES = {
     'services.html': 'services.html',
     #'shop.html': 'shop.html',
-    'blog.html': 'blog.html',
+    'news.html': 'news.html',
     'contact.html': 'contact.html',
     '404.html': '404.html',
 }

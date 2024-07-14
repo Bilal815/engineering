@@ -1,47 +1,67 @@
 {% extends "base.html" %}
-{% block title %} Home | {{ SITENAME }} {% endblock %}
+{% block title %} Home {% endblock %}
 
 {% block header_container %}
-<div class="bg-img" style="background-image: url('/theme/assets/images/pages/solar_frame_fabrication.jpeg');"></div>
-<section>
-  <h3>Experience Top-Notch Manufacturing Solutions for Canopies that Stand the Test of Time</h3>
-  <!--<img src="assets/images/pages/genset_canopy.jpeg" alt="Canopy Image">-->
-  <p>Brief description highlighting the quality, durability, and customization options of the canopies.</p>
-  <a href="/services" class="cta-btn">Learn More</a>
-</section>
-{% endblock %}
-{% block content %}
-<!-- Services section -->
-<section class="section" style="background-image: url('/theme/assets/images/pages/solar_installation.jpeg');">
-    <h3>Harness the Power of the Sun: Professional Solar Installation Services Tailored to Your Needs</h3>
-    <!--<img src="assets/images/pages/solar_installation.jpeg" alt="Solar Image">-->
-    <p>Concise description emphasizing the benefits of solar energy and the expertise of F and D Engineering in installation.</p>
-    <a href="/services" class="cta-btn">Discover More</a>
-</section>
+<div class="bg-img w3-display-container w3-grayscale-min" style="margin-top: 2.01vw;">
+    <img src="/theme/assets/images/pages/solar_frame_fabrication.jpeg" alt="solar frame">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
 
-<section class="section" style="background-image: url('/theme/assets/images/pages/genset_canopy.jpeg');">
-    <h3>Reliable Energy Solutions: Expert Installation of Diesel and Gas Generators for Uninterrupted Power Supply</h3>
-    <!--<img src="generators.jpg" alt="Generators Image">-->
-    <p>Informative description highlighting the importance of reliable power solutions and the proficiency of F and D Engineering in generator installation.</p>
-    <a href="/services" class="cta-btn">Explore Options</a>
-</section>
+        <h3 class="w3-jumbo w3-hide-small">Experience Top-Notch Manufacturing Solutions for Canopies that Stand the Test of Time</h3><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium">Experience Top-Notch Manufacturing Solutions for Canopies that Stand the Test of Time</span><br>
 
-<section class="section" style="background-image: url('/theme/assets/images/pages/solar_frame_fabrication.jpeg');">
-    <h3>Craftsmanship at its Finest: Specialized Fabrication Services for All Your Engineering Needs</h3>
-    <!--<img src="assets/images/pages/solar_frame_fabrication.jpeg" alt="Fabrication Image">-->
-    <p>Brief overview of the fabrication capabilities, precision, and attention to detail offered by F and D Engineering.</p>
-    <a href="/services" class="cta-btn">See Our Work</a>
-</section>
-
-<section class="section" style="background-image: url('/theme/assets/images/pages/solar_frame_fabrication.jpeg');">
-    <h3>Unlock the Full Potential of Your Projects with F and D Engineering: Your Trusted Engineering Partner</h3>
-    
-    <!-- Clients section -->
-    <div class="testimonials">
-    <!-- Testimonials from satisfied clients -->
+        <p class="w3-large">Brief description highlighting the quality, durability, and customization options of the canopies.</p>
+        <a href="/services" class="cta-btn w3-button w3-white w3-padding-large w3-large w3-margin-top">Learn More and Start Today</a>
     </div>
+</div>
+{% endblock %}
 
-    <p>Convincing statement highlighting the company's expertise, reliability, and commitment to customer satisfaction.</p>
-    <a href="/contact" class="cta-btn">Contact Us Today</a>
-</section>
+{% block content %}
+<!-- Services div -->
+<div class="bg-img w3-display-container w3-grayscale-min">
+    <img src="/theme/assets/images/pages/solar_installation.jpeg" alt="solar installation">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+
+        <h3 class="w3-jumbo w3-hide-small">Harness the Power of the Sun: Professional Solar Installation Services Tailored to Your Needs</h3><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium">Harness the Power of the Sun: Professional Solar Installation Services Tailored to Your Needs</span><br>
+
+        <p class="w3-large">Concise description emphasizing the benefits of solar energy and the expertise of F and D Engineering in installation.</p>
+        <a href="/services" class="cta-btn w3-button w3-white w3-padding-large w3-large w3-margin-top">Discover More</a>
+    </div>
+</div>
+
+<div class="bg-img w3-display-container w3-grayscale-min">
+    <img src="/theme/assets/images/pages/genset_canopy.jpeg" alt="Generator Canopy">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+
+        <h3 class="w3-jumbo w3-hide-small">Reliable Energy Solutions: Expert Installation of Diesel and Gas Generators for Uninterrupted Power Supply</h3><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium">Reliable Energy Solutions: Expert Installation of Diesel and Gas Generators for Uninterrupted Power Supply</span><br>
+
+        <p class="w3-large">Informative description highlighting the importance of reliable power solutions and the proficiency of F and D Engineering in generator installation.</p>
+        <a href="/services" class="cta-btn w3-button w3-white w3-padding-large w3-large w3-margin-top">Explore Options</a>
+    </div>
+</div>
+
+<div class="bg-img w3-display-container w3-grayscale-min">
+    <img src="/theme/assets/images/pages/solar_frame_fabrication.jpeg" alt="Solar Frame Fabrication">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+
+        <h3 class="w3-jumbo w3-hide-small">Craftsmanship at its Finest: Specialized Fabrication Services for All Your Engineering Needs</h3><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium">Craftsmanship at its Finest: Specialized Fabrication Services for All Your Engineering Needs</span><br>
+
+        <p class="w3-large">Brief overview of the fabrication capabilities, precision, and attention to detail offered by F & D Engineering.</p>
+        <a href="/services" class="cta-btn w3-button w3-white w3-padding-large w3-large w3-margin-top">See Our Projects</a>
+    </div>
+</div>
+
+<div class="bg-img w3-display-container w3-grayscale-min">
+    <img src="/theme/assets/images/pages/solar_frame_fabrication.jpeg" alt="Solar Frame Fabrication">
+    <div class="w3-display-left w3-text-white" style="padding:48px">
+
+        <h3 class="w3-jumbo w3-hide-small">Unlock the Full Potential of Your Projects with F and D Engineering: Your Trusted Engineering Partner</h3><br>
+        <span class="w3-xxlarge w3-hide-large w3-hide-medium">Unlock the Full Potential of Your Projects with F and D Engineering: Your Trusted Engineering Partner</span><br>
+
+        <p class="w3-large">Convincing statement highlighting the company's expertise, reliability, and commitment to customer satisfaction.</p>
+        <a href="/contact" class="cta-btn w3-button w3-white w3-padding-large w3-large w3-margin-top">Contact Us Today</a>
+    </div>
+</div>
 {% endblock content %}
